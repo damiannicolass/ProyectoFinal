@@ -33,11 +33,11 @@ loginForm.addEventListener("submit", (e) => {
 
   // Si no es correcto, mostramos una alerta de error
   if (!validarUsuario) {
-    return Swal.fire("Usuario y/o contaseña incorrectos");
+    return Swal.fire('Usuario y/o contaseña incorrectos');
   }
 
   // Si es correcto, damos acceso
-  Swal.fire("Bienvenido a tu cuenta");
+  Swal.fire('Bienvenido a tu cuenta');
 
   //para darme cuenta que hay un usuario logeado
   localStorage.setItem("login_success", JSON.stringify(validarUsuario));

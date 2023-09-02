@@ -19,7 +19,7 @@ registrarForm.addEventListener("submit", (e) => {
 
   //si es un usuario registrado alerta y con return volvemos
   if (isUserRegistered) {
-    return Swal.fire("El usuario ya esta registrado");
+    return Swal.fire('El usuario ya esta registrado');
   }
   //si no esta registrado agregamos con un push el objeto al array
   users.push({ name: name, email: email, password: password });
@@ -28,7 +28,7 @@ registrarForm.addEventListener("submit", (e) => {
   localStorage.setItem("users", JSON.stringify(users));
 
   //alerta de registrado
-  Swal.fire("tu cuenta ha sido creada exitosamente!");
+  Swal.fire('tu cuenta ha sido creada exitosamente!');
 
   //redireccion
   window.location.href = "login.html";
