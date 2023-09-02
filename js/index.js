@@ -10,7 +10,7 @@ const logout = document.querySelector("#logout");
 
 //tomar el evento click del boton logout
 logout.addEventListener("click", () => {
-  Swal.fire('Adios');
+ // Swal.fire('Adios');
 
   //eliminar los datos almacenados en localstorage
   localStorage.removeItem("login_success");
