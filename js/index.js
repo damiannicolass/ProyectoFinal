@@ -21,9 +21,9 @@ logout.addEventListener("click", () => {
 
 // Creo un arreglo con productos
 const productos = [
-  { id: 1, nombre: "Mate 1", precio: "10.000", image: "../images/mate.jpg" },
-  { id: 2, nombre: "Mate 2", precio: "8.000", image: "../images/mate.jpg" },
-  { id: 3, nombre: "Mate 3", precio: "6.000", image: "../images/mate.jpg" },
+  { id: 1, nombre: "Mate 1", precio: "10.000", image: "./images/mate.jpg" },
+  { id: 2, nombre: "Mate 2", precio: "8.000", image: "./images/mate.jpg" },
+  { id: 3, nombre: "Mate 3", precio: "6.000", image: "./images/mate.jpg" },
 ];
 
 // Llamo a la etiqueta del HTML
