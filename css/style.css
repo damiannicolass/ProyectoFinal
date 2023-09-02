@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.titulo {
+  text-align: center;
+}
+img {
+  width: 180px;
+}
+
+#root {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+section div {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #b2b2b2;
+  border-radius: 7px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* LOGIN*/
+.iniciar__sesion {
+  background-color: rgba(0, 0, 0, 0.229);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 7px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
+}
+#loginForm{
+    display:flex ;
+    justify-content :center;
+
+}
+
+/*REGISTRO*/
+.registrarse{
+    background-color: rgba(0, 0, 0, 0.229);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
