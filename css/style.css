@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+
 .titulo {
   text-align: center;
 }
@@ -16,38 +17,67 @@ img {
   flex-wrap: wrap;
   justify-content: space-around;
 }
-section div {
-  margin-top: 2rem;
+
+section div{
+  background-color: #b2b2b2;
   padding: 1rem;
+}
+
+.cotizador {
+  margin-top: 2rem;
+  padding: 2rem;
   background-color: #b2b2b2;
   border-radius: 7px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* LOGIN*/
-.iniciar__sesion {
-  background-color: rgba(0, 0, 0, 0.229);
+#carrito {
+  background-color: rgb(148, 148, 148);
+  margin-top: 3rem;
+  display: grid;
+  justify-items: center;
+}
+
+
+
+
+
+/*CONVERSOR DE MONEDA*/
+.main-section {
+  text-align: center;
+  margin: auto;
+  width: 60%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.container {
+  display: flex;
+}
+.form-side {
+  width: 100%;
+}
+.form-side form#form-search {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+}
+.form-side #form-search select {
+  font-size: inherit;
+  margin: 8px 0px 7px;
+  background-color: aliceblue;
+  padding: 8px 5px;
+  font-family: "Montserrat", sans-serif;
   border-radius: 7px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-
-}
-#loginForm{
-    display:flex ;
-    justify-content :center;
-
+  border: solid 1px #ada2a2;
+  color: #72736d;
 }
 
-/*REGISTRO*/
-.registrarse{
-    background-color: rgba(0, 0, 0, 0.229);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 7px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+.error {
+  color: red;
+}
+.display-info p span {
+  font-weight: 700;
+}
+.display-info .main-price {
+  font-size: 28px;
+  margin-bottom: 2px;
 }

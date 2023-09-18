@@ -11,25 +11,37 @@ registrarForm.addEventListener("submit", (e) => {
   const email = document.querySelector("#email").value;
   const password = document.querySelector("#password").value;
 
-  //base de datos en el localstorage, array de objetos
+  //creamos una nueva instancia de la clase User
+  const user = new User(name, email, password);
+
+  //obtenemos el array de usuarios del local storage
   const users = JSON.parse(localStorage.getItem("users")) || [];
 
-  // find de user para buscar un usuario que tenga el mismo mail que ingresaron
+  //buscamos el usuario con el email ingresado
   const isUserRegistered = users.find((user) => user.email === email);
 
-  //si es un usuario registrado alerta y con return volvemos
+  //si el usuario existe, mostramos una alerta
   if (isUserRegistered) {
-    return Swal.fire('El usuario ya esta registrado');
+    Swal.fire("El usuario ya esta registrado");
+    return;
   }
-  //si no esta registrado agregamos con un push el objeto al array
-  users.push({ name: name, email: email, password: password });
 
-  //lo guardamos en el local storage
+  //agregamos el nuevo usuario al array
+  users.push(user);
+
+  //guardamos el array de usuarios en el local storage
   localStorage.setItem("users", JSON.stringify(users));
 
-  //alerta de registrado
-  Swal.fire('tu cuenta ha sido creada exitosamente!');
-
-  //redireccion
+  //redireccionamos a la pagina de inicio de sesion
   window.location.href = "login.html";
 });
+
+//clase User
+class User {
+  constructor(name, email, password) {
+    this.name = name;
+    this.email = email;
+    this.password = password;
+  }
+}
+

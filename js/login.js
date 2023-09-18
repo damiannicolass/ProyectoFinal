@@ -1,15 +1,3 @@
-// Crear un array con un objeto dentro
-const users = [
-  {
-    name: "admin",
-    email: "admin@gmail.com",
-    password: "123456",
-  },
-];
-
-// Guardar el array en el almacenamiento local
-localStorage.setItem("users", JSON.stringify(users));
-
 // Tomar formulario del login
 const loginForm = document.querySelector("#loginForm");
 
@@ -33,11 +21,11 @@ loginForm.addEventListener("submit", (e) => {
 
   // Si no es correcto, mostramos una alerta de error
   if (!validarUsuario) {
-    return Swal.fire('Usuario y/o contaseña incorrectos');
+    Swal.fire("Usuario y/o contaseña incorrectos");
   }
 
   // Si es correcto, damos acceso
-  Swal.fire('Bienvenido a tu cuenta');
+  Swal.fire("Bienvenido a tu cuenta");
 
   //para darme cuenta que hay un usuario logeado
   localStorage.setItem("login_success", JSON.stringify(validarUsuario));
