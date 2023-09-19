@@ -3,53 +3,75 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-
+body {
+  padding-top: 5rem;
+  background-image: url("/images/fondo.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 .titulo {
   text-align: center;
+  margin: 0.5rem;
 }
-img {
-  width: 180px;
+section h3 {
+  margin: 1rem;
 }
 
+img {
+  width: 180px;
+  transition: transform 0.5s;
+}
+img:hover {
+  transform: scale(1.1);
+}
 #root {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-}
-
-section div{
-  background-color: #b2b2b2;
-  padding: 1rem;
-}
-
-.cotizador {
   margin-top: 2rem;
-  padding: 2rem;
-  background-color: #b2b2b2;
+}
+section div {
+  background-color: #aaaaaa6a;
+  padding: 1rem;
   border-radius: 7px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
-
 #carrito {
-  background-color: rgb(148, 148, 148);
+  background-color: #aaaaaa6a;
   margin-top: 3rem;
   display: grid;
   justify-items: center;
+  max-width: 60%;
+  margin: auto;
+  border-radius: 7px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  padding: 1.5rem;
+}
+#btnComprar {
+  margin: 1rem;
 }
 
-
-
-
-
 /*CONVERSOR DE MONEDA*/
+.cotizador {
+  margin-top: 2rem;
+  padding: 2rem;
+  background-color: #aaaaaa6a;
+  border-radius: 7px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+.container__conversor {
+  text-align: center;
+}
+.titulo__conversor {
+  text-align: center;
+}
+
 .main-section {
   text-align: center;
   margin: auto;
   width: 60%;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-
 .container {
   display: flex;
 }
@@ -70,7 +92,6 @@ section div{
   border: solid 1px #ada2a2;
   color: #72736d;
 }
-
 .error {
   color: red;
 }
@@ -80,4 +101,16 @@ section div{
 .display-info .main-price {
   font-size: 28px;
   margin-bottom: 2px;
+}
+/*FOOTER*/
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #212529;
+}
+.p__footer {
+  color: #fff;
+  font-size: 16px;
+  margin: 0;
 }

@@ -1,23 +1,44 @@
-//en el caso de que este logeado entra sino false
+//SI EL USUARIO ESTA LOGEADO ENTRA
 const user = JSON.parse(localStorage.getItem("login_success")) || false;
-//si es false lo saca de la pagina y se va al login
+//SI NO LO ESTÁ LO REDIRIGE AL LOGIN
 if (!user) {
   window.location.href = "login.html";
 }
 
-//logout
+//LOGOUT
 const logout = document.querySelector("#logout");
 
 //tomar el evento click del boton logout
 logout.addEventListener("click", () => {
-  // Swal.fire('Adios');
+  let timerInterval;
+  Swal.fire({
+    title: "Gracias por visitarnos!",
+    timer: 1500,
+    timerProgressBar: true,
+    didOpen: () => {
+      Swal.showLoading();
+      const b = Swal.getHtmlContainer().querySelector("b");
+      timerInterval = setInterval(() => {
+        b.textContent = Swal.getTimerLeft();
+      }, 100);
+    },
+    willClose: () => {
+      clearInterval(timerInterval);
+    },
+  }).then((result) => {
+    /* Read more about handling dismissals below */
+    if (result.dismiss === Swal.DismissReason.timer) {
+      console.log("I was closed by the timer");
+    }
+  });
 
   //eliminar los datos almacenados en localstorage
   localStorage.removeItem("login_success");
-  window.location.href = "login.html";
-});
 
-//----------
+  setTimeout(() => {
+    window.location.href = "login.html";
+  }, 2000);
+});
 
 // Creo un arreglo con productos
 const productos = [
@@ -45,9 +66,9 @@ const actualizarCarritoVisual = () => {
   for (const producto of carrito) {
     const listItem = document.createElement("li");
     listItem.className = "list-group-item";
-    listItem.innerHTML = `${producto.nombre} x ${producto.cantidad} - $${
-      producto.precio * producto.cantidad
-    }`;
+    listItem.innerHTML = `Producto: ${producto.nombre}, Cantidad: ${
+      producto.cantidad
+    } - $${producto.precio * producto.cantidad}`;
     carritoList.appendChild(listItem);
     total += producto.precio * producto.cantidad;
   }
@@ -97,7 +118,7 @@ const loadEvents = () => {
       } else {
         // Si el producto ya está en el carrito, incrementamos la cantidad
         productInCart.cantidad++;
-     
+
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -188,11 +209,9 @@ function crearProductos() {
 // Llamamos a la función para crear productos y asignar eventos
 crearProductos();
 
-/*
-SACAR PARA ALERTA DE MATES 
 setTimeout(() => {
   Swal.fire("Mira las ofertas que tenemos en mates!");
-}, 10000);*/
+}, 10000);
 
 // COTIZADOR DE MONEDA
 const form = document.querySelector("#form-search");
@@ -222,8 +241,6 @@ function submitForm(e) {
     return;
   }
   consultarAPI(moneda, criptomoneda);
-  //console.log(moneda);
-  //console.log(criptomoneda);
 }
 
 function consultarAPI(moneda, criptomoneda) {
@@ -232,7 +249,6 @@ function consultarAPI(moneda, criptomoneda) {
     .then((resultado) => resultado.json())
     .then((resultadoJson) => {
       mostrarCotizacion(resultadoJson.DISPLAY[criptomoneda][moneda]);
-      //console.log(resultadoJson.DISPLAY[criptomoneda][moneda]);
     })
     .catch((error) => console.log(error));
 }
@@ -272,7 +288,6 @@ function consultarCriptos() {
     .then((respuesta) => respuesta.json())
     .then((respuestaJson) => {
       selectCriptos(respuestaJson.Data);
-      //console.log(respuestaJson.Data);
     })
     .catch((error) => console.log(error));
 }

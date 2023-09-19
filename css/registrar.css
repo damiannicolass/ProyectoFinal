@@ -5,9 +5,9 @@
 }
 body {
   background-image: url("/images/fondo.jpg");
-  background-size: cover; /* Ajusta la imagen para cubrir todo el cuerpo */
-  background-repeat: no-repeat; /* Evita que la imagen se repita */
-  background-attachment: fixed; /* Fija la imagen de fondo para que no se desplace con el contenido */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 .registrarse {
   background-color: rgba(0, 0, 0, 0.229);
@@ -22,7 +22,9 @@ body {
   margin: 2rem auto;
   max-width: 50%;
 }
-
+section h2 {
+  margin: 1.5rem;
+}
 #registrarForm {
   display: flex;
   flex-direction: column;
@@ -32,7 +34,6 @@ body {
   align-content: center;
   margin-bottom: 1rem;
 }
-
 .login__registro {
   padding: 1rem;
   text-align: center;

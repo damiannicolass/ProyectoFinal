@@ -22,14 +22,34 @@ loginForm.addEventListener("submit", (e) => {
   // Si no es correcto, mostramos una alerta de error
   if (!validarUsuario) {
     Swal.fire("Usuario y/o contaseña incorrectos");
+  } else {
+    //para darme cuenta que hay un usuario logeado
+    localStorage.setItem("login_success", JSON.stringify(validarUsuario));
+
+    // Si es correcto, damos acceso
+    Swal.fire({
+      title: "Ingresando...",
+      timer: 1500,
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading();
+        const b = Swal.getHtmlContainer().querySelector("b");
+        timerInterval = setInterval(() => {
+          b.textContent = Swal.getTimerLeft();
+        }, 100);
+      },
+      willClose: () => {
+        clearInterval(timerInterval);
+      },
+    }).then((result) => {
+      /* Read more about handling dismissals below */
+      if (result.dismiss === Swal.DismissReason.timer) {
+        console.log("I was closed by the timer");
+      }
+    });
+    setTimeout(() => {
+      // Redirección a la página de inicio
+      window.location.href = "index.html";
+    }, 1500);
   }
-
-  // Si es correcto, damos acceso
-  Swal.fire("Bienvenido a tu cuenta");
-
-  //para darme cuenta que hay un usuario logeado
-  localStorage.setItem("login_success", JSON.stringify(validarUsuario));
-
-  // Redirección a la página de inicio
-  window.location.href = "index.html";
 });
